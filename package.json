@@ -1,0 +1,17 @@
+{
+  "name": "magalu-finder-api",
+  "version": "1.0.0",
+  "description": "Api de consulta, inserção, alteração e exclusão de dados de lojas e produtos do magalu",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "api",
+    "magalu",
+    "finder",
+    "luizalabs"
+  ],
+  "author": "Kairo Lamarca Santos",
+  "license": "ISC"
+}
