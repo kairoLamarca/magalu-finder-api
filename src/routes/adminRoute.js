@@ -15,4 +15,7 @@ router.route('/loja/:filial')
 router.route('/produto')
     .get(produtoController.getAll);
 
+router.route('/produto/:codigo')
+    .get(produtoController.getByCodigo);
+
 module.exports = router;    
