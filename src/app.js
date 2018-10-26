@@ -2,8 +2,9 @@ require('dotenv').load();
 const express = require('express');
 const app = express();
 const bodyParser = require('body-parser');
-expressValidator = require('express-validator');
+const expressValidator = require('express-validator');
 const adminRoute = require('./routes/adminRoute');
+const clienteRoute = require('./routes/clienteRoute');
 
 //body parser
 app.use(bodyParser.urlencoded({ extended: false }));
@@ -22,5 +23,6 @@ app.use((req, res, next) => {
 
 //Rotas
 app.use('/admin', adminRoute);
+app.use('/cliente', clienteRoute);
 
 module.exports = app;
