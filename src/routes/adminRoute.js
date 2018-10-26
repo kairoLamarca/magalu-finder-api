@@ -13,7 +13,8 @@ router.route('/loja/:filial')
     .delete(lojaController.delete);
 
 router.route('/produto')
-    .get(produtoController.getAll);
+    .get(produtoController.getAll)
+    .post(produtoController.post);
 
 router.route('/produto/:codigo')
     .get(produtoController.getByCodigo);

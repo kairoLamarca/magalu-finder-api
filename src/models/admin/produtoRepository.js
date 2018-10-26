@@ -15,3 +15,11 @@ exports.getAll = async () => {
 
     return results;
 }
+
+exports.post = async (dados) => {
+    const connection = await mysql();
+
+    const [results] = await connection.query('insert into produtos set ?', dados);
+
+    return results;
+}
