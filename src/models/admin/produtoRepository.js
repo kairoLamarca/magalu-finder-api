@@ -31,3 +31,11 @@ exports.put = async (codigo, dados) => {
 
     return results;
 }
+
+exports.delete = async (codigo) => {
+    const connection = await mysql();
+
+    const [results] = await connection.query('delete from produtos where codigo = ?', [codigo]);
+
+    return results;
+}

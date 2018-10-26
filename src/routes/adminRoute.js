@@ -18,6 +18,7 @@ router.route('/produto')
 
 router.route('/produto/:codigo')
     .get(produtoController.getByCodigo)
-    .put(produtoController.put);
+    .put(produtoController.put)
+    .delete(produtoController.delete);
 
 module.exports = router;    
