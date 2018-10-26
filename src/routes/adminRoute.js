@@ -24,8 +24,10 @@ router.route('/produto/:codigo')
 
 router.route('/produtoloja')
     .get(produtoLojaController.getAll)
+    .post(produtoLojaController.post);
 
 router.route('/produtoloja/:id')
     .get(produtoLojaController.getById)
+    .delete(produtoLojaController.delete);
 
 module.exports = router;    
