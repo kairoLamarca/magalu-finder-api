@@ -31,3 +31,11 @@ exports.put = async (filial, dados) => {
 
     return results;
 }
+
+exports.delete = async (filial) => {
+    const connection = await mysql();
+
+    const [results] = await connection.query('delete from lojas where filial = ?', [filial]);
+
+    return results;
+}

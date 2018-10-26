@@ -86,3 +86,21 @@ exports.put = async (req, res) => {
         res.status(500).json(error);
     }
 }
+
+exports.delete = async (req, res) => {
+    try {
+        const filial = req.params.filial;
+
+        const result = await loja.delete(filial);
+
+        if (result.affectedRows > 0) {
+            res.status(200).json({ 'mensagem': `${result.affectedRows} registro(s) excluído(s) com sucesso` });
+        }
+        else {
+            res.status(404).json({ 'mensagem': 'Nenhum registro foi excluído' });
+        }
+    }
+    catch (error) {
+        res.status(500).json(error);
+    }
+}

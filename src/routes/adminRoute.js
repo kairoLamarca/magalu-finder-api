@@ -8,6 +8,7 @@ router.route('/loja')
 
 router.route('/loja/:filial')
     .get(controller.getByFilial)
-    .put(controller.put);
+    .put(controller.put)
+    .delete(controller.delete);
 
 module.exports = router;    
