@@ -76,7 +76,7 @@ exports.put = async (req, res) => {
         const result = await loja.put(filial, dados);
 
         if (result.affectedRows > 0) {
-            res.status(204).json({ 'mensagem': `${result.affectedRows} registro(s) alterado(s) com sucesso` });
+            res.status(201).json({ 'mensagem': `${result.affectedRows} registro(s) alterado(s) com sucesso` });
         }
         else {
             res.status(404).json({ 'mensagem': 'Nenhum registro foi alterado' });

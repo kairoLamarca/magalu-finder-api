@@ -17,6 +17,7 @@ router.route('/produto')
     .post(produtoController.post);
 
 router.route('/produto/:codigo')
-    .get(produtoController.getByCodigo);
+    .get(produtoController.getByCodigo)
+    .put(produtoController.put);
 
 module.exports = router;    

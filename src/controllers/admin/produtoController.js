@@ -49,13 +49,32 @@ exports.post = async (req, res) => {
         }
         else {
             const result = await produto.post(dados);
-            
+
             if (result.affectedRows > 0) {
                 res.status(201).json({ 'mensagem': `${result.affectedRows} registro(s) inserido(s) com sucesso` });
             }
             else {
                 res.status(404).json({ 'mensagem': 'Nenhum registro foi inserido' });
             }
+        }
+    }
+    catch (error) {
+        res.status(500).json(error);
+    }
+}
+
+exports.put = async (req, res) => {
+    try {
+        const codigo = req.params.codigo;
+        const dados = req.body;
+
+        const result = await produto.put(codigo, dados);
+        console.log(result);
+        if (result.affectedRows > 0) {
+            res.status(201).json({ 'mensagem': `${result.affectedRows} registro(s) alterado(s) com sucesso` });
+        }
+        else {
+            res.status(404).json({ 'mensagem': 'Nenhum registro foi alterado' });
         }
     }
     catch (error) {

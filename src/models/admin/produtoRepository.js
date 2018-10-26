@@ -23,3 +23,11 @@ exports.post = async (dados) => {
 
     return results;
 }
+
+exports.put = async (codigo, dados) => {
+    const connection = await mysql();
+        
+    const [results] = await connection.query('update produtos set ? where codigo = ?', [dados, codigo]);
+
+    return results;
+}
