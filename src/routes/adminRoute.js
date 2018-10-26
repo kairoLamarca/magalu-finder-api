@@ -3,7 +3,8 @@ const router = express.Router();
 const controller = require('../controllers/admin/lojaController');
 
 router.route('/loja')
-    .get(controller.getAll);
+    .get(controller.getAll)
+    .post(controller.post);
 
 router.route('/loja/:filial')
     .get(controller.getByFilial);

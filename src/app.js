@@ -2,11 +2,13 @@ require('dotenv').load();
 const express = require('express');
 const app = express();
 const bodyParser = require('body-parser');
+expressValidator = require('express-validator');
 const adminRoute = require('./routes/adminRoute');
 
 //body parser
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
+app.use(expressValidator());
 
 //Configuração de acesso
 app.use((req, res, next) => {
