@@ -1,14 +1,18 @@
 const express = require('express');
 const router = express.Router();
-const controller = require('../controllers/admin/lojaController');
+const lojaController = require('../controllers/admin/lojaController');
+const produtoController = require('../controllers/admin/produtoController');
 
 router.route('/loja')
-    .get(controller.getAll)
-    .post(controller.post);
+    .get(lojaController.getAll)
+    .post(lojaController.post);
 
 router.route('/loja/:filial')
-    .get(controller.getByFilial)
-    .put(controller.put)
-    .delete(controller.delete);
+    .get(lojaController.getByFilial)
+    .put(lojaController.put)
+    .delete(lojaController.delete);
+
+router.route('/produto')
+    .get(produtoController.getAll);
 
 module.exports = router;    
