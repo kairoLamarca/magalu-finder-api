@@ -4,6 +4,7 @@ use magalu_finder;
 
 create table lojas (	
     filial int not null primary key,
+    descricao varchar(200) not null,
     cep int not null,
     cidade varchar(200) not null,
     estado varchar(2) not null,

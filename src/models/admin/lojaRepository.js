@@ -8,3 +8,11 @@ exports.getByFilial = async (filial) => {
 
     return results;
 }
+
+exports.getAll = async () => {
+    const connection = await mysql();
+
+    const [results] = await connection.query('select * from lojas;');
+
+    return results;
+}

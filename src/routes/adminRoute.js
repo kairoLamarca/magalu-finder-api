@@ -2,6 +2,9 @@ const express = require('express');
 const router = express.Router();
 const controller = require('../controllers/admin/lojaController');
 
+router.route('/loja')
+    .get(controller.getAll);
+
 router.route('/loja/:filial')
     .get(controller.getByFilial);
 
