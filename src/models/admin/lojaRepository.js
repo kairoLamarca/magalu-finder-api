@@ -18,8 +18,16 @@ exports.getAll = async () => {
 
 exports.post = async (dados) => {
     const connection = await mysql();
-    console.log(dados);
+
     const [results] = await connection.query('insert into lojas set ?', dados);
 
-    return results;  
+    return results;
+}
+
+exports.put = async (filial, dados) => {
+    const connection = await mysql();
+        
+    const [results] = await connection.query('update lojas set ? where filial = ?', [dados, filial]);
+
+    return results;
 }

@@ -7,6 +7,7 @@ router.route('/loja')
     .post(controller.post);
 
 router.route('/loja/:filial')
-    .get(controller.getByFilial);
+    .get(controller.getByFilial)
+    .put(controller.put);
 
 module.exports = router;    

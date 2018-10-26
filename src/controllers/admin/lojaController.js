@@ -67,3 +67,22 @@ exports.post = async (req, res) => {
         res.status(500).json(error);
     }
 }
+
+exports.put = async (req, res) => {
+    try {
+        const filial = req.params.filial;
+        const dados = req.body;
+
+        const result = await loja.put(filial, dados);
+
+        if (result.affectedRows > 0) {
+            res.status(204).json({ 'mensagem': `${result.affectedRows} registro(s) alterado(s) com sucesso` });
+        }
+        else {
+            res.status(404).json({ 'mensagem': 'Nenhum registro foi alterado' });
+        }
+    }
+    catch (error) {
+        res.status(500).json(error);
+    }
+}
