@@ -21,9 +21,10 @@ create table produtos (
 );
 
 create table produtos_lojas (
+	id int not null primary key auto_increment,
 	id_produto int not null,
     filial int not null ,    
-    primary key (id_produto, filial),
+    unique (id_produto, filial),
     constraint fk_filial foreign key (filial) references lojas(filial),
     constraint fk_id_produto foreign key (id_produto) references produtos(id)
 );
