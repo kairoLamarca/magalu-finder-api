@@ -24,18 +24,18 @@ exports.post = async (dados) => {
     return results;
 }
 
-exports.put = async (codigo, dados) => {
+exports.put = async (id, dados) => {
     const connection = await mysql();
         
-    const [results] = await connection.query('update produtos set ? where codigo = ?', [dados, codigo]);
+    const [results] = await connection.query('update produtos set ? where id = ?', [dados, id]);
 
     return results;
 }
 
-exports.delete = async (codigo) => {
+exports.delete = async (id) => {
     const connection = await mysql();
 
-    const [results] = await connection.query('delete from produtos where codigo = ?', [codigo]);
+    const [results] = await connection.query('delete from produtos where id = ?', [id]);
 
     return results;
 }

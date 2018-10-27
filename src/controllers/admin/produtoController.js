@@ -65,10 +65,10 @@ exports.post = async (req, res) => {
 
 exports.put = async (req, res) => {
     try {
-        const codigo = req.params.codigo;
+        const id = req.params.codigo;
         const dados = req.body;
 
-        const result = await produto.put(codigo, dados);
+        const result = await produto.put(id, dados);
         
         if (result.affectedRows > 0) {
             res.status(201).json({ 'mensagem': `${result.affectedRows} registro(s) alterado(s) com sucesso` });
@@ -84,9 +84,9 @@ exports.put = async (req, res) => {
 
 exports.delete = async (req, res) => {
     try {
-        const codigo = req.params.codigo;
+        const id = req.params.codigo;
 
-        const result = await produto.delete(codigo);
+        const result = await produto.delete(id);
 
         if (result.affectedRows > 0) {
             res.status(200).json({ 'mensagem': `${result.affectedRows} registro(s) excluído(s) com sucesso` });
