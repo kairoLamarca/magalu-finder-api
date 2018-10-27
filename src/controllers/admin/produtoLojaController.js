@@ -1,10 +1,10 @@
 const produtoLoja = require('../../models/admin/produtoLojaRepository');
 
-exports.getById = async (req, res) => {
+exports.getByCodigo = async (req, res) => {
     try {
-        const id = req.params.id;
+        const codigo = req.params.id;
 
-        const result = await produtoLoja.getByCodigo(id);
+        const result = await produtoLoja.getByCodigo(codigo);
 
         if (result.length > 0) {
             res.status(200).json(result);
