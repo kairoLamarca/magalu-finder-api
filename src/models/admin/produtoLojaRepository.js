@@ -3,7 +3,7 @@ const mysql = require('../../config/bdConnection');
 exports.getByCodigo = async (codigo) => {
     const connection = await mysql();
 
-    const [results] = await connection.query(`select l.filial, l.descricao as loja, p.descricao as produto, p.codigo as codigo_produto 
+    const [results] = await connection.query(`select pl.id, l.filial, l.descricao as loja, p.descricao as produto, p.codigo as codigo_produto 
                                                 from produtos_lojas pl
                                                 inner join lojas l
                                                     on pl.filial = l.filial
@@ -17,7 +17,7 @@ exports.getByCodigo = async (codigo) => {
 exports.getAll = async () => {
     const connection = await mysql();
 
-    const [results] = await connection.query(`select l.filial, l.descricao as loja, p.descricao as produto, p.codigo as codigo_produto 
+    const [results] = await connection.query(`select pl.id, l.filial, l.descricao as loja, p.descricao as produto, p.codigo as codigo_produto 
                                                 from produtos_lojas pl
                                                 inner join lojas l
                                                     on pl.filial = l.filial
