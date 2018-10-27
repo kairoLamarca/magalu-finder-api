@@ -17,7 +17,12 @@ exports.getByCodigo = async (codigo) => {
 exports.getAll = async () => {
     const connection = await mysql();
 
-    const [results] = await connection.query('select * from produtos_lojas;');
+    const [results] = await connection.query(`select l.filial, l.descricao as loja, p.descricao as produto, p.codigo as codigo_produto 
+                                                from produtos_lojas pl
+                                                inner join lojas l
+                                                    on pl.filial = l.filial
+                                                inner join produtos p
+                                                    on pl.id_produto = p.id;`);
 
     return results;
 }
