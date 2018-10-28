@@ -32,7 +32,35 @@ exports.getCodigoCep = async (codigo, cep) => {
 
     connection.destroy();
 
-    const retornoCliente = await retornaDistancia(results, cep);
+    let retornoCliente = []
+
+    if (results.length > 0) {
+
+        retornoCliente = await retornaDistancia(results, cep);
+    }
+
+    return retornoCliente;
+}
+
+exports.getDescricaoCep = async (descricao, cep) => {
+    const connection = await mysql();
+
+    const [results] = await connection.query(`select l.descricao as loja, l.cep, p.descricao as produto, p.codigo as codigo_produto 
+                                                from produtos_lojas pl
+                                                inner join lojas l
+                                                    on pl.filial = l.filial
+                                                inner join produtos p
+                                                    on pl.id_produto = p.id
+                                                where p.descricao = '${descricao}';`);
+
+    connection.destroy();
+
+    let retornoCliente = []
+
+    if (results.length > 0) {
+
+        retornoCliente = await retornaDistancia(results, cep);
+    }
 
     return retornoCliente;
 }
