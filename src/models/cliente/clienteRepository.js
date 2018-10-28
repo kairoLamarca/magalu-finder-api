@@ -16,22 +16,6 @@ exports.getAll = async () => {
 
     connection.destroy();
 
-    googleMapsClient.distanceMatrix(
-        {
-            origins: ['14403530'],
-            destinations: ['14405413', '14400500', '14400260']
-        })
-        .asPromise()
-        .then((response) => {
-            console.log(response.json.rows[0].elements.length);
-            console.log(response.json.rows[0].elements[0]);
-            console.log(response.json.rows[0].elements[1]);
-            console.log(response.json.rows[0].elements[2]);
-        })
-        .catch((err) => {
-            console.log(err);
-        });
-
     return results;
 }
 
@@ -48,6 +32,12 @@ exports.getCodigoCep = async (codigo, cep) => {
 
     connection.destroy();
 
+    const retornoCliente = await retornaDistancia(results, cep);
+
+    return retornoCliente;
+}
+
+retornaDistancia = async (results, cep) => {
     let cepsLojas = [];
     let retornoCliente = []
 
@@ -78,8 +68,6 @@ exports.getCodigoCep = async (codigo, cep) => {
     await retornoCliente.sort((a, b) => {
         return a.distance_value < b.distance_value ? -1 : a.distance_value > b.distance_value ? 1 : 0;
     })
-
-    console.log(retornoCliente);
 
     return retornoCliente;
 }

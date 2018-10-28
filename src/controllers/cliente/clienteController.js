@@ -22,7 +22,7 @@ exports.getCodigoCep = async (req, res) => {
         const cep = req.params.cep;
 
         const result = await cliente.getCodigoCep(codigo, cep);
-        console.log('1', result);
+        
         if (result.length > 0) {
             res.status(200).json(result);
         }
