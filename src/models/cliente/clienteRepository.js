@@ -10,5 +10,7 @@ exports.getAll = async () => {
                                                 inner join produtos p
                                                     on pl.id_produto = p.id;`);
 
+    connection.destroy();
+
     return results;
 }

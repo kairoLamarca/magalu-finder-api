@@ -11,6 +11,8 @@ exports.getByCodigo = async (codigo) => {
                                                     on pl.id_produto = p.id
                                                 where p.codigo = ?`, [codigo]);
 
+    connection.destroy();
+
     return results;
 }
 
@@ -24,6 +26,8 @@ exports.getAll = async () => {
                                                 inner join produtos p
                                                     on pl.id_produto = p.id;`);
 
+    connection.destroy();
+
     return results;
 }
 
@@ -32,6 +36,8 @@ exports.post = async (dados) => {
 
     const [results] = await connection.query('insert into produtos_lojas set ?', dados);
 
+    connection.destroy();
+
     return results;
 }
 
@@ -39,6 +45,8 @@ exports.delete = async (id) => {
     const connection = await mysql();
 
     const [results] = await connection.query('delete from produtos_lojas where id = ?', [id]);
+
+    connection.destroy();
 
     return results;
 }
