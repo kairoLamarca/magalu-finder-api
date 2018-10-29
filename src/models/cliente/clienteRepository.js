@@ -35,7 +35,6 @@ exports.getCodigoCep = async (codigo, cep) => {
     let retornoCliente = []
 
     if (results.length > 0) {
-
         retornoCliente = await retornaDistancia(results, cep);
     }
 
@@ -87,8 +86,8 @@ retornaDistancia = async (results, cep) => {
                 cep: results[i].cep,
                 produto: results[i].produto,
                 codigo_produto: results[i].codigo_produto,
-                distancia: response.json.rows[0].elements[i].distance.text,
-                distance_value: response.json.rows[0].elements[i].distance.value
+                distancia: response.json.rows[0].elements[i].status === 'OK' ? response.json.rows[0].elements[i].distance.text : '',
+                distance_value: response.json.rows[0].elements[i].status === 'OK' ? response.json.rows[0].elements[i].distance.value : ''
             }
         );
     }
