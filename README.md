@@ -105,4 +105,47 @@ Para executar os testes, execute os seguintes comandos na pasta raiz do projeto:
     }
 ]
 ```
+
+**POST** http://localhost:4000/admin/loja/
+##### envio
+``` javascript
+{
+	"filial": "6",
+	"descricao": "Loja 6",
+	"cep": "14456123",
+	"cidade": "Franca",
+	"estado": "SP",
+	"endereco": "Rua do comércio",
+	"bairro": "Centro",
+	"numero": "1234"
+}
+```
+##### Retorno
+``` javascript
+{
+    "mensagem": "1 registro(s) inserido(s) com sucesso"
+}
+```
+
+**PUT** http://localhost:4000/admin/loja/1
+##### envio
+``` javascript
+{
+	"descricao": "Loja 1",
+	"cep": "14456123",
+	"cidade": "Franca",
+	"estado": "SP",
+	"endereco": "Rua do comércio",
+	"bairro": "Centro",
+	"numero": "1234"
+}
+```
+##### Retorno
+``` javascript
+{
+    "mensagem": "1 registro(s) alterado(s) com sucesso"
+}
+```
 ### Cliente
+
+
