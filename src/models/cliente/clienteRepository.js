@@ -7,7 +7,7 @@ const googleMapsClient = require('@google/maps').createClient({
 exports.getAll = async () => {
     const connection = await mysql();
 
-    const [results] = await connection.query(`select l.descricao as loja, l.cep, p.descricao as produto, p.codigo as codigo_produto 
+    const [results] = await connection.query(`select l.descricao as loja, l.cep, p.descricao as produto, p.codigo as codigo_produto, p.valor 
                                                 from produtos_lojas pl
                                                 inner join lojas l
                                                     on pl.filial = l.filial
@@ -22,7 +22,7 @@ exports.getAll = async () => {
 exports.getCodigoCep = async (codigo, cep) => {
     const connection = await mysql();
 
-    const [results] = await connection.query(`select l.descricao as loja, l.cep, p.descricao as produto, p.codigo as codigo_produto 
+    const [results] = await connection.query(`select l.descricao as loja, l.cep, p.descricao as produto, p.codigo as codigo_produto, p.valor
                                                 from produtos_lojas pl
                                                 inner join lojas l
                                                     on pl.filial = l.filial
@@ -44,7 +44,7 @@ exports.getCodigoCep = async (codigo, cep) => {
 exports.getDescricaoCep = async (descricao, cep) => {
     const connection = await mysql();
 
-    const [results] = await connection.query(`select l.descricao as loja, l.cep, p.descricao as produto, p.codigo as codigo_produto 
+    const [results] = await connection.query(`select l.descricao as loja, l.cep, p.descricao as produto, p.codigo as codigo_produto, p.valor 
                                                 from produtos_lojas pl
                                                 inner join lojas l
                                                     on pl.filial = l.filial
@@ -86,6 +86,7 @@ retornaDistancia = async (results, cep) => {
                 cep: results[i].cep,
                 produto: results[i].produto,
                 codigo_produto: results[i].codigo_produto,
+                valor: results[i].valor,
                 distancia: response.json.rows[0].elements[i].status === 'OK' ? response.json.rows[0].elements[i].distance.text : '',
                 distance_value: response.json.rows[0].elements[i].status === 'OK' ? response.json.rows[0].elements[i].distance.value : ''
             }
