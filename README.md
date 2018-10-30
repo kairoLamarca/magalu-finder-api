@@ -279,4 +279,45 @@ Para executar os testes, execute os seguintes comandos na pasta raiz do projeto:
 
 ### Cliente
 
+### cliente/produtoloja
+**GET** http://localhost:4000/cliente/produtoloja/
+##### Retorno
+``` javascript
+[
+    {
+        "loja": "loja 1",
+        "cep": 14400500,
+        "produto": "Produto teste",
+        "codigo_produto": "ABCD",
+        "valor": "1234.56"
+    }
+]
+```
 
+**GET** http://localhost:4000/cliente/produtoloja/codigo/cep/ABCD/14403530
+##### Retorno
+``` javascript
+[
+    {
+        "loja": "loja 1",
+        "cep": 14400500,
+        "produto": "AAAA",
+        "codigo_produto": "ABCD",
+        "valor": "1234.56"
+    }
+]
+```
+
+**GET** http://localhost:4000/cliente/produtoloja/descricao/cep/AAAA/14403530
+##### Retorno
+``` javascript
+[
+    {
+        "loja": "loja 1",
+        "cep": 14400500,
+        "produto": "AAAA",
+        "codigo_produto": "ABCD",
+        "valor": "1234.56"
+    }
+]
+```
