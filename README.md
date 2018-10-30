@@ -48,6 +48,7 @@ Para executar a aplicação localmente, execute os seguintes comandos na pasta d
 > cd bin
 > node server
 ```
+A aplicação estará rodando em [http://localhost:4000]
 
 ### Banco de dados
 É necessário criar um banco de dados MySql com as seguintes definições:
