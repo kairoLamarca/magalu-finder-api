@@ -71,8 +71,7 @@ Para executar os testes, execute os seguintes comandos na pasta raiz do projeto:
 
 ## Rotas
 
-### Admin/Loja
-
+### admin/loja
 **GET** http://localhost:4000/admin/loja/
 ##### Retorno
 ``` javascript
@@ -155,7 +154,8 @@ Para executar os testes, execute os seguintes comandos na pasta raiz do projeto:
     "mensagem": "1 registro(s) excluído(s) com sucesso"
 }
 ```
-### Admin/Produto
+
+### admin/produto
 **GET** http://localhost:4000/admin/produto/
 ##### Retorno
 ``` javascript
@@ -223,6 +223,60 @@ Para executar os testes, execute os seguintes comandos na pasta raiz do projeto:
     "mensagem": "1 registro(s) excluído(s) com sucesso"
 }
 ```
+
+### admin/produtoloja
+**GET** http://localhost:4000/admin/produtoloja/
+##### Retorno
+``` javascript
+[
+    {
+        "id": 1,
+        "filial": 1,
+        "loja": "loja 1",
+        "produto": "Produto teste",
+        "codigo_produto": "ABCD"
+    }
+]
+```
+
+**GET** http://localhost:4000/admin/produtoloja/1
+##### Retorno
+``` javascript
+[
+    {
+        "id": 1,
+        "filial": 1,
+        "loja": "loja 1",
+        "produto": "Produto teste",
+        "codigo_produto": "ABCD"
+    }
+]
+```
+
+**POST** http://localhost:4000/admin/produtoloja/
+##### envio
+``` javascript
+{
+    "id_produto": "2",
+    "filial": "1"
+}
+
+```
+##### Retorno
+``` javascript
+{
+    "mensagem": "1 registro(s) inserido(s) com sucesso"
+}
+```
+
+**DELETE** http://localhost:4000/admin/produtoloja/1
+##### Retorno
+``` javascript
+{
+    "mensagem": "1 registro(s) excluído(s) com sucesso"
+}
+```
+
 ### Cliente
 
 
