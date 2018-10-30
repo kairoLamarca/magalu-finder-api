@@ -1,10 +1,6 @@
 const loja = require('../src/models/admin/lojaRepository');
 const expect = require('chai').expect;
 
-async function add(a, b) {
-    return (a + b);
-}
-
 describe('lojaRepository.js', () => {
     it('loja - getAll', async () => {
         const result = await loja.getAll();
